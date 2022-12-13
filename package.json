@@ -1,0 +1,23 @@
+{
+  "name": "honest-magic-utils",
+  "version": "1.0.0",
+  "description": "Node Module with some useful utils.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honest-magic/hm-ts-utils.git"
+  },
+  "author": "Michael Szediwy (@szediwy)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/honest-magic/hm-ts-utils/issues"
+  },
+  "homepage": "https://github.com/honest-magic/hm-ts-utils#readme"
+}

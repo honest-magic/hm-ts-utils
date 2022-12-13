@@ -1,0 +1,1 @@
+export { StringTemplate } from './string-template'

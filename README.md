@@ -1,2 +1,3 @@
-# hm-ts-utils
+# Honest Magic Typescript Utilities
+
 Node Module with some useful utils.
