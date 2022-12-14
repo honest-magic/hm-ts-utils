@@ -7,4 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 # CodeStream ignored files
-/../../honest-magic-utils\.idea/codestream.xml
+codestream.xml
