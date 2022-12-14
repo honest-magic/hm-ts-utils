@@ -1,25 +1,26 @@
 {
   "name": "honest-magic-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node Module with some useful utils.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "/dist",
+    "!/dist/**/*_spec.*"
   ],
   "scripts": {
     "test": "mocha --require ts-node/register src/**/*_spec.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/honest-magic/hm-ts-utils.git"
+    "url": "git+https://github.com/honest-magic/honest-magic-utils.git"
   },
   "author": "Michael Szediwy (@szediwy)",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/honest-magic/hm-ts-utils/issues"
+    "url": "https://github.com/honest-magic/honest-magic-utils/issues"
   },
-  "homepage": "https://github.com/honest-magic/hm-ts-utils#readme",
+  "homepage": "https://github.com/honest-magic/honest-magic-utils#readme",
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
