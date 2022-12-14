@@ -1,1 +1,1 @@
-export { StringTemplate } from './string-template'
+export * from './string_template'
