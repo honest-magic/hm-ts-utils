@@ -1,1 +1,1 @@
-export * from './string_template'
+export * from './string_template.js'

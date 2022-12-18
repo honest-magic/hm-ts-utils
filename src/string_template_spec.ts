@@ -1,4 +1,4 @@
-import {StringTemplate, TextNode, VariableMapping, VariableNode} from "./string_template";
+import {StringTemplate, TextNode, VariableMapping, VariableNode} from "./string_template.js";
 
 import "mocha";
 import {expect} from "chai";

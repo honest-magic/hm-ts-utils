@@ -1,4 +1,4 @@
-import {deepFreeze} from './freeze';
+import {deepFreeze} from './freeze.js';
 
 
 type StringProvider = string | (() => string)
