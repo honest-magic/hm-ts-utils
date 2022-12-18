@@ -1,6 +1,6 @@
 {
   "name": "honest-magic-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node Module with some useful utils.",
   "type": "module",
   "main": "dist/index.js",
