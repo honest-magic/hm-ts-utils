@@ -2,6 +2,7 @@ import {deepFreeze} from './freeze.js';
 
 
 type StringProvider = string | (() => string)
+type StringTransformer = null | undefined | ((value: string) => string)
 
 export class StringTemplate {
 
@@ -45,8 +46,33 @@ export class StringTemplate {
                     if (declaringVariable) {
                         declaringVariable = false;
                         if (currentVariable !== '') {
+
+                            let transform: StringTransformer
+                            // Check whether it ends with , ,, ^ ^^
+                            if (currentVariable.endsWith('^^')) {
+                                currentVariable = currentVariable.slice(0, -2)
+                                if (currentVariable.length > 0) {
+                                    transform = value => value.toUpperCase()
+                                }
+                            } else if (currentVariable.endsWith(',,')) {
+                                currentVariable = currentVariable.slice(0, -2)
+                                if (currentVariable.length > 0) {
+                                    transform = value => value.toLowerCase()
+                                }
+                            } else if (currentVariable.endsWith('^')) {
+                                currentVariable = currentVariable.slice(0, -1)
+                                if (currentVariable.length > 0) {
+                                    transform = value => value.charAt(0).toUpperCase() + value.slice(1)
+                                }
+                            } else if (currentVariable.endsWith(',')) {
+                                currentVariable = currentVariable.slice(0, -1)
+                                if (currentVariable.length > 0) {
+                                    transform = value => value.charAt(0).toLowerCase() + value.slice(1)
+                                }
+                            }
+
                             let variable = this.getOrCreateVariable(currentVariable);
-                            let varNode = new VariableNode(variable);
+                            let varNode = new VariableNode(variable, transform);
                             variable.addNode(varNode);
                             this.addNode(varNode);
                             currentVariable = '';
@@ -117,6 +143,11 @@ export class StringTemplate {
                 if (typeof m === 'function') {
                     m = m();
                 }
+
+                if (varNode.transform) {
+                    m = varNode.transform(m)
+                }
+
                 result += m;
             } else {
                 throw Error("Unknown node type: " + node);
@@ -158,14 +189,20 @@ export class TextNode extends Node {
 export class VariableNode extends Node {
 
     private readonly _variable: Variable
+    private readonly _transform: StringTransformer;
 
-    constructor(variable: Variable) {
+    constructor(variable: Variable, transform: StringTransformer = null) {
         super()
         this._variable = variable;
+        this._transform = transform;
     }
 
     public get variable() {
         return this._variable;
+    }
+
+    public get transform(): StringTransformer {
+        return this._transform
     }
 
 }

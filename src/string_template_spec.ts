@@ -106,7 +106,7 @@ describe('StringTemplate', () => {
             let variables: VariableMapping = {
                 mapping: {
                     a: () => "Hello",
-                    b:  () => "World",
+                    b: () => "World",
                     c: () => "X"
                 }
             }
@@ -128,6 +128,57 @@ describe('StringTemplate', () => {
             expect(() => template.substitute(variables)).to.throw("No mapping found for ${b}");
 
         });
+
+        context('replacement operations', () => {
+
+
+            it('replacement transformation: none', () => {
+                let templateTransform = new StringTemplate("${property}");
+                let variables: VariableMapping = {
+                    mapping: {
+                        property: () => "Hello World!"
+                    }
+                }
+                expect(templateTransform.substitute(variables)).to.be.equal("Hello World!");
+            });
+            it('replacement transformation: ^^', () => {
+                let templateTransform = new StringTemplate("${property^^}");
+                let variables: VariableMapping = {
+                    mapping: {
+                        property: () => "Hello World!"
+                    }
+                }
+                expect(templateTransform.substitute(variables)).to.be.equal("HELLO WORLD!");
+            });
+            it('replacement transformation: ,,', () => {
+                let templateTransform = new StringTemplate("${property,,}");
+                let variables: VariableMapping = {
+                    mapping: {
+                        property: () => "Hello World!"
+                    }
+                }
+                expect(templateTransform.substitute(variables)).to.be.equal("hello world!");
+            });
+            it('replacement transformation: ^', () => {
+                let templateTransform = new StringTemplate("${property^}");
+                let variables: VariableMapping = {
+                    mapping: {
+                        property: () => "Hello World!"
+                    }
+                }
+                expect(templateTransform.substitute(variables)).to.be.equal("Hello World!");
+            });
+            it('replacement transformation: ,', () => {
+                let templateTransform = new StringTemplate("${property,}");
+                let variables: VariableMapping = {
+                    mapping: {
+                        property: () => "Hello World!"
+                    }
+                }
+                expect(templateTransform.substitute(variables)).to.be.equal("hello World!");
+            });
+        })
+
 
     });
 
