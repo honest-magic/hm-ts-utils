@@ -1,5 +1,5 @@
 {
-  "name": "honest-magic-utils",
+  "name": "@honest-magic/honest-magic-utils",
   "version": "1.1.0",
   "description": "Node Module with some useful utils.",
   "type": "module",
@@ -10,11 +10,15 @@
     "!/dist/**/*_spec.*"
   ],
   "scripts": {
+    "build": "tsc",
     "test": "mocha --loader=ts-node/esm --extension ts --require ts-node/register src/**/*_spec.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/honest-magic/honest-magic-utils.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Michael Szediwy (@szediwy)",
   "license": "SEE LICENSE IN LICENSE",
