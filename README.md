@@ -42,8 +42,8 @@ Support for bash 4.0 like transformations:
 
 - `${property,}` to convert the first letter of the string to lowercase
 - `${property,,}` to convert the whole string to lowercase
-- `${property^}` to convert the first letter of the string to lowercase
-- `${property^^}` to convert the whole string to lowercase
+- `${property^}` to convert the first letter of the string to uppercase
+- `${property^^}` to convert the whole string to uppercase
 
 ## Development ##
 
