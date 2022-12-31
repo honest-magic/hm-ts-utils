@@ -62,6 +62,6 @@ $ npm test
 ### Deploy ###
 
 ```shell
-$ npm publish
+$ npm publish --access public
 ```
 
